@@ -1,10 +1,12 @@
 # <a href="https://nodejs.org/es/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="nodejs" width="40" height="40"/> </a> Node.js | Microservicio DevOps
 
-Este microservicio expone un endpoint REST `/DevOps` protegido con una API Key y un JWT. Está diseñado para ser escalable y probado bajo un entorno Docker con balanceo de carga. A continuación, se proporcionan las instrucciones detalladas para ejecutar y probar el microservicio.
+Este microservicio expone un endpoint REST `/DevOps` protegido con una API Key y un JWT. 
+Está diseñado para ser escalable y probado bajo un entorno Docker con balanceo de carga. 
+A continuación, se proporcionan las instrucciones detalladas para ejecutar y probar el microservicio.
 
 ## Requisitos
 
-- Node.js (v14 o superior)
+- Node.js (v16 o superior)
 - Docker y Docker Compose
 - Git
 - `curl` para probar el endpoint
@@ -16,7 +18,7 @@ Este microservicio expone un endpoint REST `/DevOps` protegido con una API Key y
 Primero, debes clonar este repositorio y configurar las variables de entorno:
 
 ```bash
-git clone <https://github.com/Parterdev/demo_devops_microservice>
+git clone [demo_devops_microservice](https://github.com/Parterdev/demo_devops_microservice)
 cd demo_devops_microservice
 cp .env.example .env
 ```
@@ -49,7 +51,7 @@ Esto iniciará el servidor en el puerto 3000.
 Para probar el microservicio una vez que esté en funcionamiento, realiza una solicitud POST al endpoint `/DevOps` utilizando `curl`. Debes incluir la API Key y el JWT en los encabezados de la solicitud:
 
 ```bash
-curl -X POST -H "X-Parse-REST-API-Key: your_api_key_here" -H "X-JWT-KWY: <your_jwt_token_here>" -H "Content-Type: application/json" -d '{"message":"This is a test", "to":"Juan Perez", "from":"Rita Asturia", "timeToLifeSec":45}' http://localhost:3000/DevOps
+curl -X POST -H "X-Parse-REST-API-Key: your_api_key_here" -H "X-JWT-KWY: <your_jwt_token_here>" -H "Content-Type: application/json" -d '{"message":"This is a test", "to":"Juan Perez", "from":"Rita Asturia", "timeToLifeSec":45}' http://localhost/DevOps
 ```
 
 Si la solicitud es exitosa, recibirás la siguiente respuesta:
@@ -65,7 +67,7 @@ Si la solicitud es exitosa, recibirás la siguiente respuesta:
 Para obtener un JWT que puedas usar en las solicitudes, puedes llamar al siguiente endpoint:
 
 ```bash
-curl http://localhost:3000/generate-token
+curl http://localhost/generate-token
 ```
 
 Esto devolverá un JWT que podrás usar en tus pruebas.

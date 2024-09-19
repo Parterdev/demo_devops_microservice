@@ -1,11 +1,15 @@
-const request = require('supertest');
-const app = require('./index');
+import request from 'supertest';
+import jwt from 'jsonwebtoken';
+import app from '../src/index';
 
 describe('POST /DevOps', () => {
   it('should return message for valid request', async () => {
+    const token = jwt.sign({ user: 'testUser' }, process.env.SECRET_KEY || 'your_secret_key', { expiresIn: '1h' });
+
     const response = await request(app)
       .post('/DevOps')
-      .set('X-Parse-REST-API-Key', 'api_key')
+      .set('X-Parse-REST-API-Key', '2f5ae96c-b558-4c7b-a590-a501ae1c3f6c')
+      .set('X-JWT-KWY', token)
       .send({
         message: 'This is a test',
         to: 'Juan Perez',

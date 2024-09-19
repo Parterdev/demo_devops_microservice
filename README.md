@@ -17,11 +17,9 @@ A continuación, se proporcionan las instrucciones detalladas para ejecutar y pr
 
 Primero, debes clonar este repositorio y configurar las variables de entorno:
 
-```bash
-git clone [demo_devops_microservice](https://github.com/Parterdev/demo_devops_microservice)
-cd demo_devops_microservice
-cp .env.example .env
-```
+- git clone [demo_devops_microservice](https://github.com/Parterdev/demo_devops_microservice)
+- cd demo_devops_microservice
+- cp .env.example .env
 
 Edita el archivo `.env` y rellénalo con los valores necesarios, como la API Key y la clave secreta (4. Generar un JWT):
 

@@ -28,7 +28,10 @@ jobs:
         run: npm run build
 
       - name: Run ESLint
-        run: npx eslint .
+        run: |
+          npm install structured-clone-polyfill
+          node -e "require('structured-clone-polyfill');"
+          npx eslint .
 
       - name: Run tests
         run: npm test
